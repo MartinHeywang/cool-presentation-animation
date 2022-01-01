@@ -1,0 +1,180 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-extra-light: #fbfbfb;
+    --bg-light: #f0f0f0;
+
+    --fw-light: 300;
+    --fw-normal: 400;
+    --fw-bold: 700;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: var(--fw-normal);
+
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+
+    width: min(1200px, 90%);
+    margin: 0 auto;
+
+    height: 100%;
+}
+
+section {
+    padding: 3rem 1rem;
+}
+
+/* DECORATIVE SECTION ========================================================================== */
+
+.decorative-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+    flex: 1;
+
+    min-height: 100%;
+}
+
+.equal {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 2.5rem;
+}
+
+.stripe {
+    min-height: 0.5em;
+    background-color: black;
+    width: 100%;
+}
+
+.lower-stripe {
+    margin-top: 0.2em;
+}
+
+.line {
+    flex-grow: 1;
+    background-color: black;
+    max-width: 0.3em;
+}
+
+.rectangle {
+    width: 70%;
+    min-height: 2em;
+    margin-top: 5em;
+    background-color: black;
+}
+
+/* MAIN SECTION ================================================================================ */
+
+.main-section {
+    display: grid;
+    place-items: center;
+    flex: 3;
+
+    position: relative;
+
+    isolation: isolate;
+}
+
+.title {
+    margin: 0;
+    padding: 0.5em 0;
+    background-color: var(--bg-extra-light);
+
+    font-weight: var(--fw-bold);
+    font-size: 4rem;
+    letter-spacing: 0.3em;
+    text-align: center;
+}
+
+:is(.striped-border, .solid-border) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    max-width: 20em;
+    min-height: 60%;
+}
+
+.striped-border {
+    border: 48px solid #000;
+    border-image: repeating-linear-gradient(-45deg, #000, #000 .6em, transparent .6em, transparent 2em) 48;
+    z-index: -2;
+}
+
+
+.solid-border {
+    border: 32px solid #000;
+
+    z-index: -1;
+    transform: translate(calc(-50% + 25px), calc(-50% - 20px));
+}
+
+/* NAME SECTION ================================================================================ */
+
+.name-section {
+    display: flex;
+    justify-content: right;
+    flex: 1;
+
+    padding: 3rem 1rem;
+}
+
+.name-section-content {
+    position: relative;
+
+    min-height: 100%;
+    min-width: 3rem;
+}
+
+.fill-line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    min-height: 100%;
+    width: 0.3em;
+    background-color: black;
+    border-radius: 0.2em;
+
+    transform: translate(-50%, -50%);
+}
+
+.name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: fit-content;
+    min-height: 70%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-extra-light);
+
+    text-align: center;
+    writing-mode: vertical-rl;
+    color: #444;
+    letter-spacing: 0.5em;
+    font-size: 1.3rem;
+
+    transform: translate(-50%, -50%);
+}
